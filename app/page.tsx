@@ -57,7 +57,7 @@ export default function Home() {
             </div>
             <div className="w-[40vw] max-md:w-[80vw] flex justify-center items-center flex-col xl:hidden">
               <img
-                src="/imgs/coverImg.png"
+                src="/imgs/coverImg.webp"
                 alt=""
                 className="aspect-video w-[50vw] max-md:w-[80vw] object-cover rounded-lg border border-[#C9C9C9]	"
               />
@@ -90,7 +90,7 @@ export default function Home() {
           </div>
           <div className="w-[50vw]  flex justify-center items-center flex-col max-xl:hidden">
             <img
-              src="/imgs/coverImg.png"
+              src="/imgs/coverImg.webp"
               alt=""
               className="aspect-square w-[25vw] h-[25vw] object-cover rounded-lg border border-[#C9C9C9]	"
             />
@@ -102,7 +102,7 @@ export default function Home() {
         >
           <div className="w-[50%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
             <img
-              src="/imgs/image4.png"
+              src="/imgs/image4.webp"
               className="aspect-video	w-[60%] max-md:w-[100%]  rounded-lg"
               alt=""
             />
@@ -119,7 +119,7 @@ export default function Home() {
           </div>
           <div className="w-[50%]  max-md:w-[80%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
             <img
-              src="/imgs/image3.png"
+              src="/imgs/image3.webp"
               className="aspect-video	w-[60%] max-md:w-[100%] rounded-lg"
               alt=""
             />
@@ -138,7 +138,7 @@ export default function Home() {
         <div className="h-[100vh] max-md:h-[150vh] max-lg:h-[115vh] max-lg:flex-col flex justify-center items-center">
           <div className="w-[50%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
             <img
-              src="/imgs/image5.png"
+              src="/imgs/image5.webp"
               className="aspect-video max-md:w-[100%]	w-[60%] rounded-lg"
               alt=""
             />
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
           <div className="w-[50%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
             <img
-              src="/imgs/image1.png"
+              src="/imgs/image1.webp"
               className="aspect-video	w-[60%] max-md:w-[100%] rounded-lg"
               alt=""
             />
@@ -177,7 +177,7 @@ export default function Home() {
         >
           <div className="w-[50vw] max-md:w-[80vw] flex justify-center items-center flex-col max-lg:hidden ">
             <img
-              src="/imgs/coverImg.png"
+              src="/imgs/coverImg.webp"
               alt=""
               className="aspect-square w-[25vw] h-[25vw] object-cover rounded-lg border border-[#C9C9C9]	"
             />
@@ -205,7 +205,7 @@ export default function Home() {
 
             <div className="w-[50vw] max-md:w-[80vw] flex justify-center items-center flex-col lg:hidden">
               <img
-                src="/imgs/coverImg.png"
+                src="/imgs/coverImg.webp"
                 alt=""
                 className="aspect-video w-[50vw] max-md:w-[80vw] object-cover rounded-lg border border-[#C9C9C9]	"
               />
@@ -218,7 +218,7 @@ export default function Home() {
               >
                 <img
                   className="h-[28px] mr-3 "
-                  src="/imgs/whatsapp.png"
+                  src="/imgs/whatsapp.webp"
                   alt=""
                 />
                 <div className="text-lg">Comprar</div>
