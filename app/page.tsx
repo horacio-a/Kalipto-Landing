@@ -1,113 +1,232 @@
-import Image from "next/image";
+"use client";
+import Header from "@/components/header";
+import localFont from "@next/font/local";
+
+import { Events, scroller, Element } from "react-scroll";
+
+const biko = localFont({
+  src: [
+    {
+      path: "../public/font/Biko_Regular.otf",
+      weight: "400",
+    },
+  ],
+  variable: "--font-biko",
+});
 
 export default function Home() {
+  const scrollTo = (name: string) => {
+    let goToContainer = new Promise<void>((resolve, reject) => {
+      Events.scrollEvent.register("end", () => {
+        resolve();
+        Events.scrollEvent.remove("end");
+      });
+
+      scroller.scrollTo(name, {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart",
+      });
+    });
+
+    goToContainer.then(() =>
+      scroller.scrollTo("scroll-container-second-element", {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart",
+        containerId: "scroll-container",
+      })
+    );
+  };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <>
+      <Header />
+      <div
+        className="w-[100%] flex flex-col"
+        style={{ backgroundColor: "#E2E9CA" }}
+      >
+        <div className="h-[100vh]    flex  justify-center items-center">
+          <div className="xl:w-[50vw] xl:h-[40vh]  mt-[10vh]  h-[90vh] w-[80vw] flex justify-center max-xl:items-center flex-col xl:pl-[10%]">
+            <h1
+              className={`${biko.className} max-md:text-4xl  max-lg:text-5xl text-7xl text-[#214E40]  font-semibold mb-4 max-xl:w-[50vw] max-md:w-[80vw]`}
+            >
+              kalipto velas
+            </h1>
+            <div className="font-sans text-black text-3xl max-lg:text-2xl  max-md:text-xl font-semibold  mb-12 lg:w-[50vw] max-xl:w-[40vw] max-md:w-[80vw]">
+              Modulo 1: Introducción
+            </div>
+            <div className="w-[40vw] max-md:w-[80vw] flex justify-center items-center flex-col xl:hidden">
+              <img
+                src="/imgs/coverImg.png"
+                alt=""
+                className="aspect-video w-[50vw] max-md:w-[80vw] object-cover rounded-lg border border-[#C9C9C9]	"
+              />
+            </div>
+            <div className="text-[#454444] lg:w-[50vw] w-[35vw] max-md:w-[80vw] max-lg:text-base text-lg text-balance max-xl:my-12 ">
+              Convertirte en una artesana completa y aprende técnicas de
+              decoración y acabados originales. Transferencias, grabados,
+              adornos florales... Tus velas serán auténticas obras de arte
+              hechas a mano con dedicación. ¡Inscríbete ya y deja volar tu
+              pasión creativa!
+            </div>
+            <div className="w-[20vw]  flex justify-around mt-4  max-xl:w-[50vw] max-md:w-[80vw]">
+              <div
+                onClick={() => {
+                  scrollTo("compra");
+                }}
+                className="text-center bg-[#214E40] rounded-lg xl:px-6 py-3 max-xl:w-[47.5%] cursor-pointer "
+              >
+                Comprar
+              </div>
+              <div
+                onClick={() => {
+                  scrollTo("info");
+                }}
+                className="text-center border-2 border-[#214E40] text-[#214E40] rounded-lg xl:px-6 py-3 max-xl:w-[47.5%] cursor-pointer whitespace-nowrap"
+              >
+                Mas información
+              </div>
+            </div>
+          </div>
+          <div className="w-[50vw]  flex justify-center items-center flex-col max-xl:hidden">
+            <img
+              src="/imgs/coverImg.png"
+              alt=""
+              className="aspect-square w-[25vw] h-[25vw] object-cover rounded-lg border border-[#C9C9C9]	"
             />
-          </a>
+          </div>
         </div>
+        <Element
+          name="info"
+          className="h-[100vh] max-md:h-[150vh] lg:mt-[10vh] max-lg:h-[115vh] max-lg:flex-col flex justify-center items-center"
+        >
+          <div className="w-[50%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
+            <img
+              src="/imgs/image4.png"
+              className="aspect-video	w-[60%] max-md:w-[100%]  rounded-lg"
+              alt=""
+            />
+            <div className="w-[60%] max-md:w-[100%] text-black text-center font-semibold text-xl mt-3 ">
+              El comienzo y los materiales
+            </div>
+            <div className="w-[60%] max-md:w-[100%] text-[#454444] text-center mt-3">
+              Descubre todos los materiales e ingredientes esenciales para crear
+              velas de soja artesanales. En este curso online, conocerás a fondo
+              las diferentes ceras , los tipos de pabilos, los aromas y
+              pigmentos naturales 100% vegetales. Aprenderás a seleccionar y
+              combinar los ingredientes como un verdadero artesano velero.
+            </div>
+          </div>
+          <div className="w-[50%]  max-md:w-[80%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
+            <img
+              src="/imgs/image3.png"
+              className="aspect-video	w-[60%] max-md:w-[100%] rounded-lg"
+              alt=""
+            />
+            <div className="w-[60%]  max-md:w-[100%] text-black text-center font-semibold text-xl mt-3 whitespace-nowrap">
+              Conceptos básicos y el procesos
+            </div>
+            <div className="w-[60%] max-md:w-[100%] text-[#454444] text-center mt-3">
+              Domina los conceptos básicos y técnicas fundamentales del proceso
+              de elaboración. Explicaremos los puntos de fusión, las
+              temperaturas óptimas, las proporciones exactas de cada ingrediente
+              y las técnicas de vertido en distintos moldes y recipientes. Serás
+              una experta en los conocimientos clave desde el principio.
+            </div>
+          </div>
+        </Element>
+        <div className="h-[100vh] max-md:h-[150vh] max-lg:h-[115vh] max-lg:flex-col flex justify-center items-center">
+          <div className="w-[50%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
+            <img
+              src="/imgs/image5.png"
+              className="aspect-video max-md:w-[100%]	w-[60%] rounded-lg"
+              alt=""
+            />
+            <div className="w-[60%] max-md:w-[100%] text-black text-center font-semibold text-xl mt-3">
+              Calidad
+            </div>
+            <div className="w-[60%] max-md:w-[100%] text-[#454444] text-center mt-3">
+              ¿Cómo lograr velas perfectamente sólidas sin grietas ni
+              imperfecciones? En esta clase aprenderás los secretos del enfriado
+              gradual y los tiempos de reposo necesarios según el tamaño.
+              Controla la temperatura con nuestra guía detallada para resultados
+              impecables.
+            </div>
+          </div>
+          <div className="w-[50%] max-lg:w-[80%] flex flex-col justify-center items-center max-lg:mt-14">
+            <img
+              src="/imgs/image1.png"
+              className="aspect-video	w-[60%] max-md:w-[100%] rounded-lg"
+              alt=""
+            />
+            <div className="w-[60%] max-md:w-[100%] text-black text-center font-semibold text-xl mt-3">
+              Personalización
+            </div>
+            <div className="w-[60%] max-md:w-[100%] text-[#454444] text-center mt-3">
+              Dale un toque único y personalizado a tus velas con fragancias y
+              colores naturales. Mezcla aceites esenciales para crear aromas
+              irresistibles y tiñe tus creaciones con vibrantes pigmentos
+              vegetales. Deja volar tu creatividad para velas totalmente
+              personalizadas.
+            </div>
+          </div>
+        </div>
+        <Element
+          name="compra"
+          className="h-[100vh] flex  justify-center items-center"
+        >
+          <div className="w-[50vw] max-md:w-[80vw] flex justify-center items-center flex-col max-lg:hidden ">
+            <img
+              src="/imgs/coverImg.png"
+              alt=""
+              className="aspect-square w-[25vw] h-[25vw] object-cover rounded-lg border border-[#C9C9C9]	"
+            />
+          </div>
+          <div className="w-[50vw] max-md:w-[80vw]  md:pr-[10%]  h-[40vh] flex justify-center max-md:items-center lg:items-end flex-col ">
+            <div
+              className={`${biko.className}  max-md:text-4xl  max-lg:text-5xl text-7xl text-[#214E40]  font-semibold mb-4  max-md:w-[80vw]`}
+            >
+              kalipto velas
+            </div>
+            <div className="font-sans text-black text-3xl max-lg:text-2xl  max-md:text-xl font-semibold  mb-12  max-md:w-[80vw]">
+              Modulo 1: Introducción
+            </div>
+
+            <div className="flex  mb-12 max-md:w-[80vw]">
+              <div
+                className={` ${biko.className} text-[#7B7B76] line-through	 text-3xl mr-4`}
+              >
+                10.000$
+              </div>
+              <div className={` ${biko.className} text-black text-5xl`}>
+                5.500$
+              </div>
+            </div>
+
+            <div className="w-[50vw] max-md:w-[80vw] flex justify-center items-center flex-col lg:hidden">
+              <img
+                src="/imgs/coverImg.png"
+                alt=""
+                className="aspect-video w-[50vw] max-md:w-[80vw] object-cover rounded-lg border border-[#C9C9C9]	"
+              />
+            </div>
+            <div className="w-[20vw] max-lg:w-[50vw] max-md:w-[80vw]  flex justify-around max-lg:mt-12">
+              <a
+                target="_blank"
+                href="https://api.whatsapp.com/send/?phone=542995707116&text=Hola+Kalipto.%0AQuiero+realizar+el+curso+online+modulo+1.&type=phone_number&app_absent=0"
+                className="w-[100%] text-center flex justify-center items-center bg-[#25D366] rounded-lg px-6 py-3 cursor-pointer"
+              >
+                <img
+                  className="h-[28px] mr-3 "
+                  src="/imgs/whatsapp.png"
+                  alt=""
+                />
+                <div className="text-lg">Comprar</div>
+              </a>
+            </div>
+          </div>
+        </Element>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
