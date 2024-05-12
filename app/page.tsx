@@ -1,6 +1,8 @@
 "use client";
+import { ComparisonSection } from "@/components/component/comparison-section";
 import Header from "@/components/header";
 import localFont from "@next/font/local";
+import Footer from "@/components/Footer";
 
 import { Events, scroller, Element } from "react-scroll";
 
@@ -63,11 +65,11 @@ export default function Home() {
               />
             </div>
             <div className="text-[#454444] lg:w-[50vw] w-[35vw] max-md:w-[80vw] max-lg:text-base text-lg text-balance max-xl:my-12 ">
-              Convertirte en una artesana completa y aprende técnicas de
-              decoración y acabados originales. Transferencias, grabados,
-              adornos florales... Tus velas serán auténticas obras de arte
-              hechas a mano con dedicación. ¡Inscríbete ya y deja volar tu
-              pasión creativa!
+              Queres hacer tus propias velas de soja en casa? convertite es una
+              autentica artesana y aprende junto conmigo todas las tecnicas y
+              secretos para realizar tus propias velas. Tus velas serán
+              auténticas obras de arte hechas a mano con dedicación. ¡Inscríbete
+              ya y deja volar tu pasión creativa!
             </div>
             <div className="w-[20vw]  flex justify-around mt-4  max-xl:w-[50vw] max-md:w-[80vw]">
               <div
@@ -171,60 +173,62 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Element
-          name="compra"
-          className="h-[100vh] flex  justify-center items-center"
-        >
-          <div className="w-[50vw] max-md:w-[80vw] flex justify-center items-center flex-col max-lg:hidden ">
-            <img
-              src="/imgs/coverImg.webp"
-              alt=""
-              className="aspect-square w-[25vw] h-[25vw] object-cover rounded-lg border border-[#C9C9C9]	"
-            />
-          </div>
-          <div className="w-[50vw] max-md:w-[80vw]  md:pr-[10%]  h-[40vh] flex justify-center max-md:items-center lg:items-end flex-col ">
-            <div
-              className={`${biko.className}  max-md:text-4xl  max-lg:text-5xl text-7xl text-[#214E40]  font-semibold mb-4  max-md:w-[80vw]`}
-            >
-              kalipto velas
-            </div>
-            <div className="font-sans text-black text-3xl max-lg:text-2xl  max-md:text-xl font-semibold  mb-12  max-md:w-[80vw]">
-              Modulo 1: Introducción
-            </div>
-
-            <div className="flex  mb-12 max-md:w-[80vw]">
-              <div
-                className={` ${biko.className} text-[#7B7B76] line-through	 text-3xl mr-4`}
-              >
-                10.000$
-              </div>
-              <div className={` ${biko.className} text-black text-5xl`}>
-                5.500$
-              </div>
-            </div>
-
-            <div className="w-[50vw] max-md:w-[80vw] flex justify-center items-center flex-col lg:hidden">
+        <ComparisonSection />
+        <Element name="compra" className="h-[100vh] flex flex-col  ">
+          <div className="flex h-[95vh]  justify-center items-center">
+            <div className="w-[50vw] max-md:w-[80vw] flex  justify-center items-center flex-col max-lg:hidden ">
               <img
                 src="/imgs/coverImg.webp"
                 alt=""
-                className="aspect-video w-[50vw] max-md:w-[80vw] object-cover rounded-lg border border-[#C9C9C9]	"
+                className="aspect-square w-[25vw] h-[25vw] object-cover rounded-lg border border-[#C9C9C9]	"
               />
             </div>
-            <div className="w-[20vw] max-lg:w-[50vw] max-md:w-[80vw]  flex justify-around max-lg:mt-12">
-              <a
-                target="_blank"
-                href="https://api.whatsapp.com/send/?phone=542995707116&text=Hola+Kalipto.%0AQuiero+realizar+el+curso+online+modulo+1.&type=phone_number&app_absent=0"
-                className="w-[100%] text-center flex justify-center items-center bg-[#25D366] rounded-lg px-6 py-3 cursor-pointer"
+            <div className="w-[50vw] max-md:w-[80vw]  md:pr-[10%]  h-[40vh] flex justify-center max-md:items-center lg:items-end flex-col ">
+              <div
+                className={`${biko.className}  max-md:text-4xl  max-lg:text-5xl text-7xl text-[#214E40]  font-semibold mb-4  max-md:w-[80vw]`}
               >
+                kalipto velas
+              </div>
+              <div className="font-sans text-black text-3xl max-lg:text-2xl  max-md:text-xl font-semibold  mb-12  max-md:w-[80vw]">
+                Modulo 1: Introducción
+              </div>
+
+              <div className="flex  mb-12 max-md:w-[80vw]">
+                <div
+                  className={` ${biko.className} text-[#7B7B76] line-through	 text-3xl mr-4`}
+                >
+                  10.000$
+                </div>
+                <div className={` ${biko.className} text-black text-5xl`}>
+                  5.500$
+                </div>
+              </div>
+
+              <div className="w-[50vw] max-md:w-[80vw] flex justify-center items-center flex-col lg:hidden">
                 <img
-                  className="h-[28px] mr-3 "
-                  src="/imgs/whatsapp.webp"
+                  src="/imgs/coverImg.webp"
                   alt=""
+                  className="aspect-video w-[50vw] max-md:w-[80vw] object-cover rounded-lg border border-[#C9C9C9]	"
                 />
-                <div className="text-lg">Comprar</div>
-              </a>
+              </div>
+              <div className="w-[20vw] max-lg:w-[50vw] max-md:w-[80vw]  flex justify-around max-lg:mt-12">
+                <a
+                  target="_blank"
+                  href="https://api.whatsapp.com/send/?phone=542995707116&text=Hola+Kalipto.%0AQuiero+realizar+el+curso+online+modulo+1.&type=phone_number&app_absent=0"
+                  className="w-[100%] text-center flex justify-center items-center bg-[#25D366] rounded-lg px-6 py-3 cursor-pointer"
+                >
+                  <img
+                    className="h-[28px] mr-3 "
+                    src="/imgs/whatsapp.webp"
+                    alt=""
+                  />
+                  <div className="text-lg">Comprar</div>
+                </a>
+              </div>
             </div>
           </div>
+
+          <Footer />
         </Element>
       </div>
     </>
