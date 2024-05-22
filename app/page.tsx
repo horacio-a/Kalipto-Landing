@@ -200,7 +200,7 @@ export default function Home() {
                   10.000$
                 </div>
                 <div className={` ${biko.className} text-black text-5xl`}>
-                  5.500$
+                  7.500$
                 </div>
               </div>
 
